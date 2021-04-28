@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+APPDEV
+</title>
+</head>
+<script>
+function getdata(){
+	fetch('http://www.cc.puv.fi/~e2001900/record.txt')
+	.then(r => r.text())
+	.then(data => dispdata(data));
+}
+
+function dispdata(d){
+	var ctt = document.getElementById("data");
+	var lines = d.split("\n");
+	
+	while(typeof lines[0] !== "undefined"){
+		let line = lines.shift();
+		ctt.innerHTML +=  line +"<br/>";
+}
+
+}
+</script>
+<body onload=getdata()>
+<div class="textlog">
+<p id="data"> </p>
+</div>
+</body>
+</html>
